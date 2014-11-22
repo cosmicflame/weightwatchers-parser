@@ -1,0 +1,15 @@
+{
+  "name": "weightwatchers-parser",
+  "version": "0.0.1",
+  "description": "A script to parse the WeightWatchers weight tracker XML and output a CSV.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cosmicflame/weightwatchers-parser.git"
+  },
+  "author": "Brian Beckett",
+  "license": "MIT"
+}
