@@ -4,6 +4,7 @@
 
 # Misc
 *.log
+testdata/
 
 # Node.js
 node_modules/
