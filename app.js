@@ -5,7 +5,6 @@ var json2csv = require('json2csv')
 var moment = require('moment')
 
 function getXmlFileAsJson(filename, callback) {
-
 	var parser = new xml2js.Parser()
 
 	//TODO path.resolve instead here?
@@ -22,7 +21,6 @@ function getXmlFileAsJson(filename, callback) {
 }
 
 function extractDatesAndWeights(data, callback) {
-
 	var base = data.WeightTrackerDataWithEntries.WeightHistory[0].WeightEntry
 
 	var datesAndWeights = _.map(base, function(entry) {
@@ -40,7 +38,6 @@ function formatDateString(dateString) {
 }
 
 function writeCsv(data, outFile, callback) {
-
 	json2csv({data: data, fields: ['date', 'weight'], fieldNames: ["Date", "Weight"]}, function(err, csv) {
 		if (err) {
 			callback(err)
@@ -80,4 +77,3 @@ if (inFile && outFile) {
 } else {
 	console.log("Please provide both --in and --out")
 }
-
