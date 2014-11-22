@@ -5,6 +5,7 @@
 # Misc
 *.log
 testdata/
+*.csv
 
 # Node.js
 node_modules/

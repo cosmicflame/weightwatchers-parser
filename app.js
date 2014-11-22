@@ -1,6 +1,7 @@
 var fs = require('fs')
 var xml2js = require('xml2js')
 var _ = require('underscore')
+var json2csv = require('json2csv')
 
 function getXmlFileAsJson(filename, callback) {
 
@@ -34,7 +35,15 @@ function extractDatesAndWeights(data, callback) {
 }
 
 function writeCsv(data, outFile, callback) {
-	callback()
+
+	json2csv({data: data, fields: ['date', 'weight']}, function(err, csv) {
+		if (err) {
+			callback(err)
+		} else {
+			// TODO path.resolve needed here?
+			fs.writeFile(outFile, csv, callback)
+		}
+	})
 }
 
 // Actual work begins here :)
