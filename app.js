@@ -2,6 +2,7 @@ var fs = require('fs')
 var xml2js = require('xml2js')
 var _ = require('underscore')
 var json2csv = require('json2csv')
+var moment = require('moment')
 
 function getXmlFileAsJson(filename, callback) {
 
@@ -26,12 +27,16 @@ function extractDatesAndWeights(data, callback) {
 
 	var datesAndWeights = _.map(base, function(entry) {
 		var newEntry = {}
-		newEntry.date = entry.DateEntered[0]
+		newEntry.date = formatDateString(entry.DateEntered[0])
 		newEntry.weight = entry.Weight[0].Value[0]
 		return newEntry
 	})
 
 	callback(null, datesAndWeights)
+}
+
+function formatDateString(dateString) {
+	return moment(dateString).format("YYYY-MM-DD")
 }
 
 function writeCsv(data, outFile, callback) {
