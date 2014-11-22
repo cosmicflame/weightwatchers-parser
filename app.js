@@ -41,7 +41,7 @@ function formatDateString(dateString) {
 
 function writeCsv(data, outFile, callback) {
 
-	json2csv({data: data, fields: ['date', 'weight']}, function(err, csv) {
+	json2csv({data: data, fields: ['date', 'weight'], fieldNames: ["Date", "Weight"]}, function(err, csv) {
 		if (err) {
 			callback(err)
 		} else {
